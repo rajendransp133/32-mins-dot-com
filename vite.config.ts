@@ -12,15 +12,21 @@ export default defineConfig({
       },
     }),
     tailwindcss(),
-    svgr({
-      // svgr options: https://react-svgr.com/docs/options/
-      svgrOptions: {
-        exportType: "default",
-        ref: true,
-        svgo: false,
-        titleProp: true,
-      },
-      include: "**/*.svg",
-    }),
+    // Run SVGR before other asset plugins to transform SVGs into React components
+    (() => {
+      const plugin = svgr({
+        // svgr options: https://react-svgr.com/docs/options/
+        svgrOptions: {
+          exportType: "default",
+          ref: true,
+          svgo: false,
+          titleProp: true,
+        },
+        include: "**/*.svg",
+      });
+      return { ...plugin, enforce: "pre" } as typeof plugin & {
+        enforce: "pre";
+      };
+    })(),
   ],
 });

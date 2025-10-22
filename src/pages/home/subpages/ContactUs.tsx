@@ -1,3 +1,6 @@
+import Message from "../../../assets/Message.svg";
+import RightArrow from "../../../assets/rightarrow.svg";
+
 export const ContactUsPage = () => {
   return (
     <div className="relative bg-linear-to-b from-[#0A1953] to-[#2842F7] w-[1112px] h-[360px] rounded-2xl p-7.5 flex flex-col gap-6 items-center justify-center ">
@@ -20,11 +23,13 @@ export const ContactUsPage = () => {
         </div>
       </div>
       <div className="flex flex-col gap-4 items-center justify-center w-[320px] h-[48px] z-10">
+        <Message />
         <input
           type="email"
           placeholder="Enter your email id here"
           className="w-full h-full rounded-3xl py-4 px-6 text-white text-lg tracking-tigher font normal placeholder:text-[#8E8E8E] bg-[#202020]"
         />
+        <RightArrow />
       </div>
     </div>
   );
