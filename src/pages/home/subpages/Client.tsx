@@ -5,7 +5,7 @@ export const ClientsPage = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full gap-10.5 ">
       <div className="flex flex-col items-center justify-center gap-3">
-        <SubpageHeader>Our Clients</SubpageHeader>
+        <SubpageHeader title="Our Clients" />
         <div className="font-bold text-3xl tracking-tigher text-white">
           Helping businesses grow
         </div>

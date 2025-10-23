@@ -5,7 +5,7 @@ import { SolutionsPage } from "./subpages/Solutions";
 import { AboutUsPage } from "./subpages/AboutUs";
 import { ClientsPage } from "./subpages/Client";
 import { WhyUsPage } from "./subpages/WhyUs";
-import { ContactUsPage } from "./subpages/ContactUs";
+import { ContactUsPage } from "../../components/ContactUs";
 import { Summary } from "../../components/Summary";
 import Footer from "../../components/Footer";
 

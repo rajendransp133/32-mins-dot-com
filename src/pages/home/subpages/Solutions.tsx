@@ -5,7 +5,7 @@ export const SolutionsPage = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen ">
       <div className="flex flex-col items-center justify-center w-full gap-3">
-        <SubpageHeader>Our Services</SubpageHeader>
+        <SubpageHeader title="Our Services" />
         <div className="font-bold text-3xl tracking-tigher text-white">
           Solutions that take your business to the next level
         </div>

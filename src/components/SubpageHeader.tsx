@@ -1,7 +1,9 @@
-export const SubpageHeader = ({ children }: { children: React.ReactNode }) => {
+export const SubpageHeader = ({ title }: { title: string }) => {
   return (
-    <div className="w-fit border border-[#1B1B1B] bg-gradient-to-r from-[#1D1D1B]/50 via-white/50 to-[#1D1D1B]/50 backdrop-blur-md px-4 py-2 rounded-lg font-normal text-white text-lg  tracking-tigher">
-      {children}
+    <div className="  bg-linear-to-r from-[#1D1D1B]/20 via-[#FFFFFF]/20 to-[#1D1D1B]/20  rounded-lg">
+      <div className="text-white text-lg font-normal tracking-tighter text-center backdrop-blur-sm  py-2 px-4  border border-[#1B1B1B] rounded-lg">
+        {title}
+      </div>
     </div>
   );
 };

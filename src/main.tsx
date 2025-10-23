@@ -9,7 +9,7 @@ import { SolutionsPage } from "./pages/home/subpages/Solutions";
 import { AboutUsPage } from "./pages/home/subpages/AboutUs";
 import { ClientsPage } from "./pages/home/subpages/Client";
 import { WhyUsPage } from "./pages/home/subpages/WhyUs";
-import { ContactUsPage } from "./pages/home/subpages/ContactUs";
+import { ContactUsPage } from "./components/ContactUs";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

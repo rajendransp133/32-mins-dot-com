@@ -7,7 +7,7 @@ export const AboutUsPage = () => {
       <div className="flex items-center justify-center gap-24 p-5 max-w-6xl">
         <div className="flex flex-col gap-9">
           <div className="flex flex-col gap-3">
-            <SubpageHeader>About Us</SubpageHeader>
+            <SubpageHeader title="About Us" />
             <h1 className="font-bold text-3xl tracking-tighter text-white">
               Who we are
             </h1>

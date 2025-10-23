@@ -1,5 +1,6 @@
 import CtaButton from "../../../components/CtaButton";
 import TriangleWithLine from "../../../assets/TriangleWithLine.svg";
+import { SubpageHeader } from "../../../components/SubpageHeader";
 
 const AboutUsSection = () => {
   return (
@@ -31,11 +32,7 @@ const AboutUsSection = () => {
       </div>
       <div className="flex items-center justify-center gap-9 flex-col">
         <div className="flex items-center justify-center gap-3 flex-col px-15 py-6">
-          <div className="  bg-linear-to-r from-[#1D1D1B]/20 via-[#FFFFFF]/20 to-[#1D1D1B]/20  rounded-lg">
-            <div className="text-white text-lg font-normal tracking-tighter text-center backdrop-blur-sm  py-2 px-4  border border-[#1B1B1B] rounded-lg">
-              Our Mission
-            </div>
-          </div>
+          <SubpageHeader title="Our Mission" />
           <div className="text-white text-3xl font-bold tracking-tighter text-center">
             Building the future of India with every line of code
           </div>

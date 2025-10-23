@@ -6,7 +6,7 @@ export const WhyUsPage = () => {
     <div className="flex items-center justify-center gap-45 w-full ">
       <div className="flex flex-col  gap-9 max-w-xl h-full">
         <div className="flex flex-col  gap-3 w-3/5">
-          <SubpageHeader>Why Us</SubpageHeader>
+          <SubpageHeader title="Why Us" />
           <h2 className="font-bold text-3xl tracking-tigher text-white ">
             What makes us stand out in the industry
           </h2>

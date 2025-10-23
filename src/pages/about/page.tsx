@@ -1,5 +1,5 @@
 import { Menu } from "../../components/Menu";
-import { ContactUsPage } from "../home/subpages/ContactUs";
+import { ContactUsPage } from "../../components/ContactUs";
 import Footer from "../../components/Footer";
 import AboutUsSection from "./subpage/AboutUsSection";
 import EmployeesSection from "./subpage/EmployeesSection";
