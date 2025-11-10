@@ -27,7 +27,7 @@ export const ClientsPage = () => {
       <div
         className="flex flex-col items-center justify-center w-full"
         style={{
-          gap: "clamp(1rem, 3vw, 1.5rem)",
+          gap: "clamp(2rem, 3vw, 1.5rem)",
           paddingLeft: "clamp(1rem, 4vw, 2.5rem)",
           paddingRight: "clamp(1rem, 4vw, 2.5rem)",
         }}
