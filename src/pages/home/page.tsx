@@ -1,4 +1,5 @@
 // HomePage.tsx
+import { useState, useEffect, useRef } from "react";
 import { Menu } from "../../components/Menu";
 import { UpdatesPage } from "./subpages/Updates";
 import { SolutionsPage } from "./subpages/Solutions";
@@ -10,6 +11,40 @@ import { Summary } from "../../components/Summary";
 import Footer from "../../components/Footer";
 
 export const HomePage = () => {
+  const summaryRef = useRef<HTMLDivElement | null>(null);
+  const [gradientHeight, setGradientHeight] = useState(200);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (summaryRef.current) {
+        const summaryHeight = summaryRef.current.offsetHeight;
+        setGradientHeight(summaryHeight * 0.9);
+      }
+    };
+
+    let resizeObserver: ResizeObserver | null = null;
+    const timeoutId = setTimeout(() => {
+      updateHeight();
+
+      // Set up ResizeObserver for more accurate measurements
+      if (summaryRef.current && window.ResizeObserver) {
+        resizeObserver = new ResizeObserver(updateHeight);
+        resizeObserver.observe(summaryRef.current);
+      }
+    }, 0);
+
+    // Handle window resize
+    window.addEventListener("resize", updateHeight);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", updateHeight);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-linear-to-t from-[#000016] to-[#000C30] flex flex-col items-center justify-center gap-16">
       <Menu />
@@ -28,9 +63,13 @@ export const HomePage = () => {
             alt="earth"
             className="mix-blend-lighten w-full rotate-90 absolute mt-40"
           />
-          <div className="absolute bottom-0 bg-linear-to-t from-[#000000] to-[#000000]/0 w-full h-[200px] flex justify-center items-end"></div>
+          <div
+            className="absolute bottom-0 bg-linear-to-t from-[#000000] to-[#000000]/0 w-full flex justify-center items-end"
+            style={{ height: `${gradientHeight}px` }}
+          ></div>
         </div>
-        <Summary />
+
+        <Summary ref={summaryRef} />
       </div>
       <SolutionsPage />
       <AboutUsPage />

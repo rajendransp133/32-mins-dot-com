@@ -1,3 +1,4 @@
+import { useRef, useEffect, useState } from "react";
 import VerticalCarousel from "./VerticalCarousel";
 
 interface ServiceCard {
@@ -5,6 +6,63 @@ interface ServiceCard {
   description: string;
   size: "small" | "medium" | "large" | "tall";
 }
+
+interface ServiceCardContentProps {
+  title: string;
+  description: string;
+}
+
+const ServiceCardContent = ({
+  title,
+  description,
+}: ServiceCardContentProps) => {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [titleWidth, setTitleWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!titleRef.current) return;
+
+    const updateWidth = () => {
+      if (titleRef.current) {
+        setTitleWidth(titleRef.current.offsetWidth);
+      }
+    };
+
+    // Initial measurement
+    updateWidth();
+
+    // Use ResizeObserver for more accurate tracking
+    const resizeObserver = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    resizeObserver.observe(titleRef.current);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [title]);
+
+  return (
+    <div className="flex flex-col gap-4">
+      <h3
+        ref={titleRef}
+        className="text-white text-2xl font-semibold leading-tighter w-fit"
+      >
+        {title}
+      </h3>
+      <p
+        className="text-[#8E8E8E] text-lg font-normal"
+        style={{
+          width: titleWidth ? `${titleWidth}px` : "fit-content",
+          maxWidth: "100%",
+        }}
+      >
+        {description}
+      </p>
+    </div>
+  );
+};
 
 const services: ServiceCard[] = [
   {
@@ -49,53 +107,43 @@ const Grid = () => {
   return (
     <div className="w-full px-40">
       <div className="grid grid-cols-6 gap-4 auto-rows-[minmax(200px,auto)]">
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-3">
-          <h3 className="text-white text-2xl font-semibold leading-tighter">
-            {services[0].title}
-          </h3>
-          <p className="text-[#8E8E8E] text-lg font-normal">
-            {services[0].description}
-          </p>
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-3 items-start ">
+          <ServiceCardContent
+            title={services[0].title}
+            description={services[0].description}
+          />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-3">
-          <h3 className="text-white text-2xl font-semibold leading-tighter">
-            {services[1].title}
-          </h3>
-          <p className="text-[#8E8E8E] text-lg font-normal">
-            {services[1].description}
-          </p>
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-3 items-start ">
+          <ServiceCardContent
+            title={services[1].title}
+            description={services[1].description}
+          />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-center row-span-1 col-span-4">
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-center row-span-1 col-span-4 gap-4">
           <VerticalCarousel />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-2 col-span-2">
-          <h3 className="text-white text-2xl font-semibold leading-tighter">
-            {services[3].title}
-          </h3>
-          <p className="text-[#8E8E8E] text-lg font-normal">
-            {services[3].description}
-          </p>
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-2 col-span-2 items-start ">
+          <ServiceCardContent
+            title={services[3].title}
+            description={services[3].description}
+          />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-2">
-          <h3 className="text-white text-2xl font-semibold leading-tighter">
-            {services[4].title}
-          </h3>
-          <p className="text-[#8E8E8E] text-lg font-normal">
-            {services[4].description}
-          </p>
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-2 items-start ">
+          <ServiceCardContent
+            title={services[4].title}
+            description={services[4].description}
+          />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-2">
-          <h3 className="text-white text-2xl font-semibold leading-tighter">
-            {services[5].title}
-          </h3>
-          <p className="text-[#8E8E8E] text-lg font-normal">
-            {services[5].description}
-          </p>
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-2 items-start ">
+          <ServiceCardContent
+            title={services[5].title}
+            description={services[5].description}
+          />
         </div>
       </div>
     </div>

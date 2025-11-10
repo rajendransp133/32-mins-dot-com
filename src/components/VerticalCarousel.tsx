@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface CarouselItem {
   title: string;
@@ -26,6 +26,8 @@ const carouselContent: CarouselItem[] = [
 const VerticalCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const [titleWidth, setTitleWidth] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -41,6 +43,37 @@ const VerticalCarousel = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Track title width to match description width
+  useEffect(() => {
+    if (!titleRef.current) return;
+
+    const updateWidth = () => {
+      if (titleRef.current) {
+        setTitleWidth(titleRef.current.offsetWidth);
+      }
+    };
+
+    // Initial measurement
+    updateWidth();
+
+    // Use ResizeObserver for more accurate tracking
+    const resizeObserver = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    resizeObserver.observe(titleRef.current);
+
+    // Also update when currentIndex changes (after animation completes)
+    const timeoutId = setTimeout(() => {
+      updateWidth();
+    }, 600); // After animation completes
+
+    return () => {
+      resizeObserver.disconnect();
+      clearTimeout(timeoutId);
+    };
+  }, [currentIndex]);
+
   const handleDotClick = (index: number) => {
     if (index !== currentIndex && !isAnimating) {
       setIsAnimating(true);
@@ -53,22 +86,31 @@ const VerticalCarousel = () => {
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <div className="flex h-full gap-6">
+      <div className="flex h-full gap-6 justify-between">
         {/* Content Section */}
         <div className="flex-1 flex flex-col">
-          <div className="relative flex-1 overflow-hidden min-h-[150px]">
+          <div className="relative flex-1 overflow-hidden h-[200px]">
             <div
-              className={`transition-all duration-500 ease-in-out ${
+              className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                 isAnimating
                   ? "opacity-0 transform translate-y-8"
                   : "opacity-100 transform translate-y-0"
               }`}
             >
-              <div>
-                <h4 className="text-white text-2xl font-semibold leading-tighter">
+              <div className="flex flex-col gap-4">
+                <h4
+                  ref={titleRef}
+                  className="text-white text-2xl font-semibold leading-tighter w-fit"
+                >
                   {carouselContent[currentIndex].title}
                 </h4>
-                <p className="text-[#8E8E8E] text-lg font-normal">
+                <p
+                  className="text-[#8E8E8E] text-lg font-normal"
+                  style={{
+                    width: titleWidth ? `${titleWidth}px` : "fit-content",
+                    maxWidth: "100%",
+                  }}
+                >
                   {carouselContent[currentIndex].description}
                 </p>
               </div>

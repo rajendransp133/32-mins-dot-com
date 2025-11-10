@@ -37,14 +37,14 @@ export const AboutUsPage = () => {
           />
         </div>
       </div>
-      <div className="max-w-4xl flex gap-4 p-3 rounded-4xl items-center justify-center bg-gradient-to-r from-[#1D1D1B]/50 via-white/50 to-[#1D1D1B]/50  shadow-[0px_0px_0px_0px_rgba(255,255,255,0.25)]">
-        <div className="text-lg font-normal tracking-tigher text-white text-center">
-          <span className="font-bold">32Mins</span> was founded in the year
-          2023, to
+      <div className="w-fit  rounded-4xl  bg-gradient-to-r from-[#1D1D1B]/10 via-white/10 to-[#1D1D1B]/10  ">
+        <div className="backdrop-blur-xs  border border-[#1B1B1B]   gap-8 p-10.5 rounded-4xl text-white text-lg tracking-tigher">
+          <span className="font-bold">32Mins</span> &nbsp;was founded in the
+          year 2023, to
           <span className="font-bold">
-            create interactive and visually engaging content
+            &nbsp;create interactive and visually engaging content
           </span>
-          that helps academics, corporates, and subject matter experts.
+          &nbsp;that helps academics, corporates, and subject matter experts.
         </div>
       </div>
     </div>
