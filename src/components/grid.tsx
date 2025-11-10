@@ -44,15 +44,15 @@ const ServiceCardContent = ({
   }, [title]);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3 sm:gap-4">
       <h3
         ref={titleRef}
-        className="text-white text-2xl font-semibold leading-tighter w-fit"
+        className="text-white text-xl sm:text-2xl font-semibold leading-tighter w-fit"
       >
         {title}
       </h3>
       <p
-        className="text-[#8E8E8E] text-lg font-normal"
+        className="text-[#8E8E8E] text-base sm:text-lg font-normal"
         style={{
           width: titleWidth ? `${titleWidth}px` : "fit-content",
           maxWidth: "100%",
@@ -105,41 +105,41 @@ const services: ServiceCard[] = [
 
 const Grid = () => {
   return (
-    <div className="w-full px-20">
-      <div className="grid grid-cols-6 gap-4 auto-rows-[minmax(200px,auto)]">
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-3 items-start ">
+    <div className="w-full px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 auto-rows-[minmax(180px,auto)] sm:auto-rows-[minmax(200px,auto)]">
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-5 sm:p-6 md:p-7.5 flex flex-col justify-start row-span-1 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-3 items-start">
           <ServiceCardContent
             title={services[0].title}
             description={services[0].description}
           />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-3 items-start ">
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-5 sm:p-6 md:p-7.5 flex flex-col justify-start row-span-1 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-3 items-start">
           <ServiceCardContent
             title={services[1].title}
             description={services[1].description}
           />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-center row-span-1 col-span-4 gap-4">
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-5 sm:p-6 md:p-7.5 flex flex-col justify-center row-span-1 col-span-1 sm:col-span-2 md:col-span-4 lg:col-span-4 gap-4">
           <VerticalCarousel />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-2 col-span-2 items-start ">
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-5 sm:p-6 md:p-7.5 flex flex-col justify-start row-span-1 sm:row-span-2 col-span-1 sm:col-span-2 md:col-span-2 lg:col-span-2 items-start">
           <ServiceCardContent
             title={services[3].title}
             description={services[3].description}
           />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-2 items-start ">
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-5 sm:p-6 md:p-7.5 flex flex-col justify-start row-span-1 col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-2 items-start">
           <ServiceCardContent
             title={services[4].title}
             description={services[4].description}
           />
         </div>
 
-        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-7.5 flex flex-col justify-start row-span-1 col-span-2 items-start ">
+        <div className="bg-[#0A0A0A] border border-[#1B1B1B] rounded-2xl p-5 sm:p-6 md:p-7.5 flex flex-col justify-start row-span-1 col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-2 items-start">
           <ServiceCardContent
             title={services[5].title}
             description={services[5].description}

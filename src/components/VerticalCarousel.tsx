@@ -86,10 +86,10 @@ const VerticalCarousel = () => {
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <div className="flex h-full gap-6 justify-between">
+      <div className="flex h-full gap-4 sm:gap-6 justify-between">
         {/* Content Section */}
         <div className="flex-1 flex flex-col">
-          <div className="relative flex-1 overflow-hidden h-[200px]">
+          <div className="relative flex-1 overflow-hidden min-h-[160px] sm:min-h-[180px] md:h-[200px]">
             <div
               className={`absolute inset-0 transition-all duration-500 ease-in-out ${
                 isAnimating
@@ -97,15 +97,15 @@ const VerticalCarousel = () => {
                   : "opacity-100 transform translate-y-0"
               }`}
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 <h4
                   ref={titleRef}
-                  className="text-white text-2xl font-semibold leading-tighter w-fit"
+                  className="text-white text-xl sm:text-2xl font-semibold leading-tighter w-fit"
                 >
                   {carouselContent[currentIndex].title}
                 </h4>
                 <p
-                  className="text-[#8E8E8E] text-lg font-normal"
+                  className="text-[#8E8E8E] text-base sm:text-lg font-normal"
                   style={{
                     width: titleWidth ? `${titleWidth}px` : "fit-content",
                     maxWidth: "100%",
@@ -119,15 +119,15 @@ const VerticalCarousel = () => {
         </div>
 
         {/* Vertical Dots Navigation */}
-        <div className="flex flex-col gap-3 justify-center items-center">
+        <div className="flex flex-col gap-2 sm:gap-3 justify-center items-center">
           {carouselContent.map((_, index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentIndex
-                  ? "h-3 w-1 bg-white"
-                  : "h-1 w-1 bg-[#8E8E8E] "
+                  ? "h-2.5 sm:h-3 w-1 bg-white"
+                  : "h-1 w-1 bg-[#8E8E8E]"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
