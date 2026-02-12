@@ -71,7 +71,7 @@ export const AboutUsPage = () => {
         viewport={{ once: true, amount: 0.5 }}
         className="rounded-4xl bg-gradient-to-r from-[#1D1D1B]/20 via-white/20 to-[#1D1D1B]/20 max-w-4xl h-fit w-full"
       >
-        <div className="backdrop-blur-3xl border border-[#1B1B1B] flex gap-[clamp(0.5rem,2vw,1rem)] p-[clamp(1rem,3vw,2rem)] rounded-4xl items-center justify-center">
+        <div className="backdrop-blur-2xl border border-[#1B1B1B] flex gap-[clamp(0.5rem,2vw,1rem)] p-[clamp(1rem,3vw,2rem)] rounded-2xl items-center justify-center">
           <div className="text-[#8E8E8E] text-[clamp(1.5rem,4vw,4rem)] tracking-tigher font-extrabold leading-[clamp(2rem,5vw,5rem)] flex-shrink-0">
             🙶
           </div>

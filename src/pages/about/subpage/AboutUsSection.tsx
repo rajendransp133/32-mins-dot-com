@@ -81,7 +81,7 @@ const AboutUsSection = () => {
         </motion.p>
       </section>
       <section className="flex items-center justify-center gap-6 sm:gap-9 flex-col">
-        <header className="flex items-center justify-center gap-3 flex-col px-4 sm:px-8 md:px-15 py-4 sm:py-6">
+        <header className="flex items-center justify-center gap-3 flex-col px-4 sm:px-8 md:px-15 pt-4 sm:pt-6">
           <SubpageHeader title="Our Mission" />
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
