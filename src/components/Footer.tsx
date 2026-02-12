@@ -3,10 +3,10 @@ import CtaButton from "./CtaButton";
 import Schdule from "../assets/schdule.svg";
 import Phone from "../assets/phone.svg";
 import Message from "../assets/message.svg";
-import Linkedin from "../assets/linkedin.png";
-import Twitter from "../assets/twitter.png";
-import Facebook from "../assets/facebook.png";
-import Insta from "../assets/insta.png";
+import Linkedin from "../assets/linkedin.webp";
+import Twitter from "../assets/twitter.webp";
+import Facebook from "../assets/facebook.webp";
+import Insta from "../assets/insta.webp";
 
 const Footer = () => {
   const socialLinks = [
@@ -128,7 +128,7 @@ const Footer = () => {
         {/* IIT Madras Image */}
         <div className="flex justify-center items-center overflow-visible ">
           <img
-            src="iitmp-image.png"
+            src="../src/images/iitmp-image.webp"
             alt="IIT Madras Research Park"
             className="h-auto object-contain"
             style={{ width: "clamp(7rem, 15vw, 12rem)" }}

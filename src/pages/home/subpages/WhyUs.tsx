@@ -43,7 +43,7 @@ export const WhyUsPage = () => {
           className="hidden lg:flex max-w-xl h-full relative"
         >
           <img
-            src="../src/images/hourglass.png"
+            src="../src/images/hourglass.webp"
             alt="Why Us"
             className="absolute right-1/2 bottom-1/6"
           />

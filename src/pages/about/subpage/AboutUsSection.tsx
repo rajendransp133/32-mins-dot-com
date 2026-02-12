@@ -55,7 +55,7 @@ const AboutUsSection = () => {
         className="w-full flex items-center justify-center"
       >
         <img
-          src="ape.png"
+          src="ape.webp"
           alt="ape"
           className="w-full max-w-[556px] h-auto object-contain rounded-lg"
         />

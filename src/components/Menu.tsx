@@ -1,7 +1,7 @@
 // Menu.tsx
 import { useState, useEffect, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
-import Badge from "../images/Badge.png";
+import Badge from "../images/Badge.webp";
 import CtaButton from "./CtaButton";
 
 const menuItems = [

@@ -14,7 +14,7 @@ const UpdatePage = () => {
     >
       <div ref={earthRef} className="relative h-screen w-full overflow-hidden">
         <motion.img
-          src="/earth2.png"
+          src="/earth2.webp"
           alt="earth"
           initial={{ y: "40%", rotate: 120 }}
           animate={isInView ? { rotate: 270 } : { rotate: 300 }}
