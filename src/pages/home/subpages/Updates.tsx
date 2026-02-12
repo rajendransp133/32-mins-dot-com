@@ -10,7 +10,7 @@ const UpdatePage = () => {
   return (
     <section
       id="updates"
-      className="z-10 relative scroll-mt-20 w-full max-w-full min-w-0 flex flex-col items-center justify-center overflow-x-hidden"
+      className="z-10 relative scroll-mt-20 w-full max-w-full min-w-0 flex flex-col items-center justify-center overflow-hidden"
     >
       <div ref={earthRef} className="relative h-screen w-full overflow-hidden">
         <motion.img

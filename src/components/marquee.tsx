@@ -17,7 +17,7 @@ export default function Marquee() {
   return (
     <div className="w-full overflow-hidden">
       <motion.div
-        className="flex w-max"
+        className="flex w-max items-center"
         animate={{ x: ["0%", "-50%"] }}
         transition={{
           duration: 20,
@@ -30,7 +30,11 @@ export default function Marquee() {
             key={index}
             src={image}
             alt={`marquee-${index}`}
-            className="h-[50px] w-[200px] object-contain pr-8"
+            className={`object-contain pr-8 ${
+              image.includes("thsti") || image.includes("iitmadras")
+                ? "h-[80px] w-[150px]"
+                : "h-[50px] w-[150px]"
+            }`}
           />
         ))}
       </motion.div>

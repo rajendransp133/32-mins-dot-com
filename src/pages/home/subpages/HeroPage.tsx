@@ -20,12 +20,15 @@ export const HeroSection = () => {
           className="flex flex-col items-center justify-center"
           style={{ gap: "clamp(1rem, 2vw, 2rem)" }}
         >
-          <h3
+          <motion.h3
             className="text-[#8E8E8E] text-center leading-[150%] tracking-[0.32em] "
             style={{ fontSize: "clamp(0.625rem, 2vw, 1.5rem)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0, ease: "easeIn" }}
           >
             CONVERTING
-          </h3>
+          </motion.h3>
           <h1
             className="tracking-tighter leading-none text-center relative"
             style={{ fontSize: "clamp(1.5rem, 7vw, 6rem)" }}
