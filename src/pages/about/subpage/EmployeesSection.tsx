@@ -140,8 +140,8 @@ const EmployeeCard = ({ employee }: { employee: Employee }) => {
 
   return (
     <motion.div variants={cardVariants}>
-      <article className="bg-[#0A0A0A] rounded-2xl sm:rounded-4xl p-3 sm:p-4 flex flex-col items-center text-center gap-3 sm:gap-5 border border-[#1B1B1B]">
-        <figure className="w-full h-36 sm:h-48 md:h-56 lg:h-62 rounded-2xl sm:rounded-4xl overflow-hidden">
+      <article className="bg-[#0A0A0A] rounded-xl sm:rounded-4xl p-2 sm:p-4 flex flex-col items-center text-center gap-2 sm:gap-5 border border-[#1B1B1B]">
+        <figure className="w-full aspect-square sm:h-48 md:h-56 lg:h-62 rounded-xl sm:rounded-4xl overflow-hidden">
           {imageAvailable ? (
             <img
               src={employee.image}
@@ -153,11 +153,11 @@ const EmployeeCard = ({ employee }: { employee: Employee }) => {
             <div className="w-full h-full bg-linear-to-b from-[#0A1956] to-[#2741F4] rounded-2xl sm:rounded-4xl"></div>
           )}
         </figure>
-        <header>
-          <h3 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-tighter">
+        <header className="min-w-0 w-full">
+          <h3 className="text-white text-[10px] sm:text-lg md:text-xl lg:text-2xl font-semibold tracking-tighter line-clamp-2">
             {employee.name}
           </h3>
-          <p className="text-[#8E8E8E] text-xs sm:text-sm font-normal tracking-tighter">
+          <p className="text-[#8E8E8E] text-[9px] sm:text-sm font-normal tracking-tighter line-clamp-2">
             {employee.position}
           </p>
         </header>
@@ -198,7 +198,7 @@ const EmployeesSection = () => {
         </motion.p>
       </header>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full"
+        className="grid grid-cols-3 gap-2 sm:gap-4 w-full"
         variants={gridVariants}
         initial="hidden"
         whileInView="visible"
