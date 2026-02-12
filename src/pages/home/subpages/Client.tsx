@@ -2,139 +2,114 @@ import { SubpageHeader } from "../../../components/SubpageHeader";
 import Marquee from "../../../components/marquee";
 import { motion } from "framer-motion";
 
-export const ClientsPage = () => {
-  return (
-    <div
-      className="flex flex-col items-center justify-center w-full"
-      style={{
-        gap: "clamp(2em, 4vw, 3rem)",
-        paddingLeft: "clamp(1rem, 5vw, 4rem)",
-        paddingRight: "clamp(1rem, 5vw, 4rem)",
-      }}
-    >
-      <div
-        className="flex flex-col items-center justify-center"
-        style={{ gap: "clamp(0.5rem, 2vw, 0.75rem)" }}
-      >
-        <SubpageHeader title="Our Clients" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: { delay: 0.2, duration: 0.5 },
-          }}
-          viewport={{ once: true, amount: 0.5 }}
-          className="font-bold tracking-tigher text-white"
-          style={{ fontSize: "clamp(1.25rem, 4vw, 1.875rem)" }}
-        >
-          Helping businesses grow
-        </motion.div>
-      </div>
-      <Marquee />
-      <div
-        className="flex flex-col items-center justify-center w-full"
-        style={{
-          gap: "clamp(2rem, 3vw, 1.5rem)",
-          paddingLeft: "clamp(1rem, 4vw, 2.5rem)",
-          paddingRight: "clamp(1rem, 4vw, 2.5rem)",
+// Testimonials data
+const TESTIMONIALS = [
+  {
+    title: "A Testament to the Strength of Our Incubation Programs",
+    quote:
+      '"Witnessing the success of our incubated start-ups, like 32Mins, fills us with immense pride. Their rapid growth and innovation is a testament to the power of our vibrant innovation ecosystem—a dynamic space where academia and industry collide to spark transformative ideas."',
+    author: "IITM Pravartak",
+  },
+  {
+    title: "Truly Transformational",
+    quote:
+      '"The team recently edited my 41-hour 4-module video Course in Global English for workers of multi-national companies, etc. I found in the team a matchless degree of enthusiasm to create new ways to add value to products and to help in all possible ways."',
+    author: "Shreesh Chaudhary Prof (Retd.), DHSS, IIT Madras",
+  },
+];
+
+// Testimonial Card Component
+const TestimonialCard = ({
+  title,
+  quote,
+  author,
+}: {
+  title: string;
+  quote: string;
+  author: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{
+      opacity: 1,
+      y: 0,
+      transition: { delay: 0.2, duration: 0.5 },
+    }}
+    viewport={{ once: true, amount: 0.5 }}
+    className="bg-linear-to-r from-[#0A0A0A]/20 via-[#707070]/20 to-[#0A0A0A]/20 
+               rounded-2xl max-w-2xl flex flex-col border border-[#1B1B1B]
+               p-4 md:p-7 lg:p-9 gap-4 md:gap-5 lg:gap-6"
+  >
+    <h3 className="font-bold tracking-tigher text-white text-sm md:text-base lg:text-lg">
+      {title}
+    </h3>
+    <p className="font-normal tracking-tigher text-[#8E8E8E] text-sm md:text-base lg:text-lg">
+      {quote}
+    </p>
+    <h4 className="font-normal tracking-tigher text-white text-sm md:text-base lg:text-lg">
+      {author}
+    </h4>
+  </motion.div>
+);
+
+// Main Component
+export const ClientsPage = () => (
+  <div
+    className="flex flex-col items-center justify-center w-full 
+                  gap-8 md:gap-10 lg:gap-12 
+                  px-4 md:px-12 lg:px-16"
+  >
+    {/* Header Section */}
+    <div className="flex flex-col items-center justify-center gap-2 md:gap-3">
+      <SubpageHeader title="Our Clients" />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.2, duration: 0.5 },
         }}
+        viewport={{ once: true, amount: 0.5 }}
+        className="font-bold tracking-tigher text-white text-xl md:text-2xl lg:text-3xl"
       >
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: { delay: 0.2, duration: 0.5 },
-          }}
-          viewport={{ once: true, amount: 0.5 }}
-          className="font-normal tracking-tigher text-[#8E8E8E] text-center"
-          style={{ fontSize: "clamp(0.875rem, 2.5vw, 1.125rem)" }}
-        >
-          Here's what our &nbsp;
-          <span className="text-white">satisfied clients</span>&nbsp;say
-        </motion.h3>
-        <div
-          className="flex flex-col md:flex-row items-center justify-center"
-          style={{ gap: "clamp(1.5rem, 4vw, 2rem)" }}
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: { delay: 0.2, duration: 0.5 },
-            }}
-            viewport={{ once: true, amount: 0.5 }}
-            className="bg-linear-to-r from-[#0A0A0A]/20 via-[#707070]/20 to-[#0A0A0A]/20 rounded-2xl max-w-2xl flex flex-col border border-[#1B1B1B]"
-            style={{
-              padding: "clamp(1rem, 3vw, 2.25rem)",
-              gap: "clamp(1rem, 2vw, 1.5rem)",
-            }}
-          >
-            <h3
-              className="font-bold tracking-tigher text-white"
-              style={{ fontSize: "clamp(0.875rem, 2.5vw, 1.125rem)" }}
-            >
-              A Testament to the Strength of Our Incubation Programs
-            </h3>
-            <p
-              className="font-normal tracking-tigher text-[#8E8E8E]"
-              style={{ fontSize: "clamp(0.875rem, 2.5vw, 1.125rem)" }}
-            >
-              "Witnessing the success of our incubated start-ups, like 32Mins,
-              fills us with immense pride. Their rapid growth and innovation is
-              a testament to the power of our vibrant innovation ecosystem—a
-              dynamic space where academia and industry collide to spark
-              transformative ideas."
-            </p>
-            <h4
-              className="font-normal tracking-tigher text-white"
-              style={{ fontSize: "clamp(0.875rem, 2.5vw, 1.125rem)" }}
-            >
-              IITM Pravartak
-            </h4>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              transition: { delay: 0.2, duration: 0.5 },
-            }}
-            viewport={{ once: true, amount: 0.5 }}
-            className="bg-linear-to-r from-[#0A0A0A]/20 via-[#707070]/20 to-[#0A0A0A]/20 rounded-2xl max-w-2xl flex flex-col border border-[#1B1B1B]"
-            style={{
-              padding: "clamp(1rem, 3vw, 2.25rem)",
-              gap: "clamp(0.5rem, 1.5vw, 0.75rem)",
-            }}
-          >
-            <h3
-              className="font-bold tracking-tigher text-white"
-              style={{ fontSize: "clamp(0.875rem, 2.5vw, 1.125rem)" }}
-            >
-              Truly Transformational
-            </h3>
-            <p
-              className="font-normal tracking-tigher text-[#8E8E8E]"
-              style={{ fontSize: "clamp(0.875rem, 2.5vw, 1.125rem)" }}
-            >
-              "The team recently edited my 41-hour 4-module video Course in
-              Global English for workers of multi-national companies, etc. I
-              found in the team a matchless degree of enthusiasm to create new
-              ways to add value to products and to help in all possible ways."
-            </p>
-            <h4
-              className="font-normal tracking-tigher text-white"
-              style={{ fontSize: "clamp(0.875rem, 2.5vw, 1.125rem)" }}
-            >
-              Shreesh Chaudhary Prof (Retd.), DHSS, IIT Madras
-            </h4>
-          </motion.div>
-        </div>
+        Helping businesses grow
+      </motion.div>
+    </div>
+
+    {/* Marquee */}
+    <Marquee />
+
+    {/* Testimonials Section */}
+    <div
+      className="flex flex-col items-center justify-center w-full 
+                    gap-6 md:gap-5 lg:gap-6 
+                    px-4 md:px-8 lg:px-10"
+    >
+      <motion.h3
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.2, duration: 0.5 },
+        }}
+        viewport={{ once: true, amount: 0.5 }}
+        className="font-normal tracking-tigher text-[#8E8E8E] text-center 
+                   text-sm md:text-base lg:text-lg"
+      >
+        Here's what our <span className="text-white">satisfied clients</span>{" "}
+        say
+      </motion.h3>
+
+      <div
+        className="flex flex-col md:flex-row items-center justify-center 
+                      gap-6 md:gap-7 lg:gap-8"
+      >
+        {TESTIMONIALS.map((testimonial) => (
+          <TestimonialCard key={testimonial.author} {...testimonial} />
+        ))}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default ClientsPage;

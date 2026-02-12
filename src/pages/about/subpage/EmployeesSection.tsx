@@ -8,10 +8,6 @@ interface Employee {
   image?: string;
 }
 
-interface EmployeesSectionProps {
-  isVisible?: boolean;
-}
-
 const employees: Employee[] = [
   {
     id: 1,
@@ -48,17 +44,29 @@ const employees: Employee[] = [
   },
 ];
 
+const gridVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.45, ease: "easeOut" as const },
+  },
+};
+
 const EmployeeCard = ({ employee }: { employee: Employee }) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        transition: { delay: 0.2, duration: 0.5 },
-      }}
-      viewport={{ once: true, amount: 0.5 }}
-    >
+    <motion.div variants={cardVariants}>
       <article className="bg-[#0A0A0A] rounded-2xl sm:rounded-4xl p-3 sm:p-4 flex flex-col items-center text-center gap-3 sm:gap-5 border border-[#1B1B1B]">
         <figure className="w-full h-36 sm:h-48 md:h-56 lg:h-62 rounded-2xl sm:rounded-4xl overflow-hidden">
           {employee.image ? (
@@ -115,11 +123,17 @@ const EmployeesSection = () => {
           solutions for you.
         </motion.p>
       </header>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full">
-        {employees.map((employee, i) => (
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 w-full"
+        variants={gridVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+      >
+        {employees.map((employee) => (
           <EmployeeCard key={employee.id} employee={employee} />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

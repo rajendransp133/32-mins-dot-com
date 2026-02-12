@@ -1,6 +1,6 @@
 // Menu.tsx
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect, useLayoutEffect } from "react";
+import { Link } from "react-router-dom";
 import Badge from "../images/Badge.png";
 import CtaButton from "./CtaButton";
 
@@ -18,7 +18,15 @@ export const Menu = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
+  const [scrollToTop, setScrollToTop] = useState(false);
+
+  useLayoutEffect(() => {
+    if (scrollToTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setScrollToTop(false);
+    }
+  }, [scrollToTop]);
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -76,7 +84,7 @@ export const Menu = () => {
             className={`w-10 h-[2.5rem] sm:w-12 sm:h-16 md:w-14 md:h-[4.5rem] lg:w-16 lg:h-20 ${
               isScrolled ? "scale-80" : "scale-100"
             } transition-all duration-300 object-contain`}
-            onClick={() => navigate("/")}
+            onClick={() => setScrollToTop(true)}
           />
         </Link>
 
@@ -92,7 +100,7 @@ export const Menu = () => {
             {menuItems.map((item) => (
               <Link
                 key={item.name}
-                to={`#${item.id}`}
+                to={`/#${item.id}`}
                 className="relative text-white/90 hover:text-white transition-colors duration-200 text-sm lg:text-base whitespace-nowrap after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full "
               >
                 {item.name}

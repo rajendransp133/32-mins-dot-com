@@ -2,15 +2,14 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu } from "../../components/Menu";
-import { UpdatesPage } from "./subpages/Updates";
+import HeroSection from "./subpages/HeroPage";
 import { SolutionsPage } from "./subpages/Solutions";
 import { AboutUsPage } from "./subpages/AboutUs";
 import { ClientsPage } from "./subpages/Client";
 import { WhyUsPage } from "./subpages/WhyUs";
 import { ContactUsPage } from "../../components/ContactUs";
-import { Summary } from "../../components/Summary";
 import Footer from "../../components/Footer";
-import EarthImage from "../../components/EarthImage";
+import UpdatePage from "./subpages/Updates";
 
 const SECTION_IDS = [
   "updates",
@@ -23,7 +22,6 @@ const SECTION_IDS = [
 
 export const HomePage = () => {
   const { hash } = useLocation();
-  const summaryRef = useRef<HTMLDivElement | null>(null);
   const solutionsRef = useRef<HTMLElement>(null);
   const aboutusRef = useRef<HTMLElement>(null);
   const clientsRef = useRef<HTMLElement>(null);
@@ -54,15 +52,10 @@ export const HomePage = () => {
       <div className="relative bg-[url('/bg-image.png')] bg-center bg-cover w-full bg-no-repeat flex flex-col items-center justify-center">
         <div className="absolute inset-0 bg-[#091951] w-full mix-blend-overlay "></div>
         <div className="absolute inset-0 bg-linear-to-t from-[#000000] to-[#000000]/0 w-full mix-blend-overlay "></div>
-        <section
-          id="updates"
-          className="z-10 relative scroll-mt-20 w-full max-w-full min-w-0 flex flex-col items-center justify-center overflow-x-hidden"
-        >
-          <UpdatesPage />
+        <section className="z-10 relative scroll-mt-20 w-full max-w-full min-w-0 flex flex-col items-center justify-center overflow-x-hidden">
+          <HeroSection />
         </section>
-        <EarthImage />
-
-        <Summary ref={summaryRef} />
+        <UpdatePage />
       </div>
       <section
         ref={solutionsRef}

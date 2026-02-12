@@ -37,7 +37,7 @@ export const SolutionsPage = () => {
           learner engagement.
         </motion.div>
       </div>
-      <Grid baseIndex={3} />
+      <Grid />
     </div>
   );
 };
