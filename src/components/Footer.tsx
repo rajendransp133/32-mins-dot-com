@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CtaButton from "./CtaButton";
+import FancyButton from "./FancyButton";
 import Schdule from "../assets/schdule.svg";
 import Phone from "../assets/Phone.svg";
 import Message from "../assets/Message.svg";
@@ -43,7 +44,7 @@ const Footer = () => {
         style={{ gap: "clamp(2rem, 4vw, 4rem)" }}
       >
         {/* Address Section */}
-        <address
+        <div
           className="flex flex-col max-w-sm w-full md:w-auto md:flex-1 lg:max-w-xs xl:max-w-sm items-center lg:items-start"
           style={{ gap: "clamp(1rem, 3vw, 1.5rem)" }}
         >
@@ -138,7 +139,7 @@ const Footer = () => {
               ))}
             </nav>
           </div>
-        </address>
+        </div>
 
         {/* IIT Madras Image */}
         <div className="flex justify-center items-center overflow-visible ">
@@ -179,8 +180,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="w-full flex justify-center md:justify-start">
-            <CtaButton
-              variant="secondary"
+            <FancyButton
               onClick={() => {
                 window.open(
                   "https://calendar.google.com/calendar/appointments/schedules/AcZssZ27ExVKUXdvOOpE4DA3Mjkx95zoM8NIFesfJra_l9njbkHvWCNXaJqUTHMUrkas9Yijusv_3rXT",
@@ -188,9 +188,12 @@ const Footer = () => {
                 );
               }}
             >
-              <Schdule />
-              Schedule a meet
-            </CtaButton>
+              <span data-name="me" className="inline-flex pr-3">
+                <Schdule />
+              </span>
+              <span data-name="hover">Schedule</span>
+              <span data-name="me"> a meet</span>
+            </FancyButton>
           </div>
         </section>
       </div>

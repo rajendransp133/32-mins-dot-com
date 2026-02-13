@@ -95,6 +95,73 @@ body {
   }
 }
 
+/* FancyButton animation styles - shared by both variants */
+.btn-style902-primary,
+.btn-style902-secondary {
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.25s;
+  span[data-name="hover"] {
+    display: inline-block;
+    transition: all 0.25s;
+    transform: translate(0, 0);
+  }
+  span[data-name="me"] {
+    margin-left: 0.25em;
+    transition: all 0.25s;
+    opacity: 1;
+  }
+  .block {
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -30%;
+    border-radius: 0 200% 200% 0;
+    opacity: 0.7;
+    transition: all 0.25s;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span::before {
+      content: "→";
+      color: white;
+      font-size: 1.2em;
+    }
+  }
+  &:hover {
+    span[data-name="me"] {
+      opacity: 0;
+    }
+    span[data-name="hover"] {
+      transition-delay: 0.2s;
+      transform: translate(1.5em, 0);
+    }
+    .block {
+      transition-delay: 0.2s;
+      left: 0;
+    }
+  }
+}
+
+.btn-style902-primary {
+  .block {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  &:hover {
+    background: linear-gradient(to bottom, #0a1953, #2842f7);
+    border-color: #2842f7;
+  }
+}
+
+.btn-style902-secondary {
+  .block {
+    background-color: rgba(131, 141, 218, 0.9);
+  }
+}
+
 .btn-style511 {
   position: relative;
   overflow: hidden;

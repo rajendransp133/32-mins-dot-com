@@ -27,14 +27,19 @@ const SpotlightCard: React.FC<SpotlightCardProps> = ({
     setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  const handleFocus = () => {
-    setIsFocused(true);
-    setOpacity(0.6);
+  const handleFocus: React.FocusEventHandler<HTMLDivElement> = (e) => {
+    // Only handle focus on the card itself, not on child interactive elements
+    if (e.target === divRef.current) {
+      setIsFocused(true);
+      setOpacity(0.6);
+    }
   };
 
-  const handleBlur = () => {
-    setIsFocused(false);
-    setOpacity(0);
+  const handleBlur: React.FocusEventHandler<HTMLDivElement> = (e) => {
+    if (e.target === divRef.current) {
+      setIsFocused(false);
+      setOpacity(0);
+    }
   };
 
   const handleMouseEnter = () => {

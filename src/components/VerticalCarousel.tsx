@@ -28,9 +28,11 @@ const VerticalCarousel = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const [titleWidth, setTitleWidth] = useState<number | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
+  const startAutoAdvance = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => {
         setCurrentIndex(
@@ -39,8 +41,13 @@ const VerticalCarousel = () => {
         setIsAnimating(false);
       }, 500);
     }, 4000);
+  };
 
-    return () => clearInterval(interval);
+  useEffect(() => {
+    startAutoAdvance();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
 
   // Track title width to match description width
@@ -76,6 +83,8 @@ const VerticalCarousel = () => {
 
   const handleDotClick = (index: number) => {
     if (index !== currentIndex && !isAnimating) {
+      // Reset auto-advance timer so it doesn't override the user's click
+      startAutoAdvance();
       setIsAnimating(true);
       setTimeout(() => {
         setCurrentIndex(index);
@@ -119,18 +128,26 @@ const VerticalCarousel = () => {
         </div>
 
         {/* Vertical Dots Navigation */}
-        <div className="flex flex-col gap-2 sm:gap-3 justify-center items-center">
+        <div className="flex flex-col gap-1 sm:gap-2 justify-center items-center">
           {carouselContent.map((_, index) => (
             <button
               key={index}
-              onClick={() => handleDotClick(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentIndex
-                  ? "h-2.5 sm:h-3 w-1 bg-white"
-                  : "h-1 w-1 bg-[#8E8E8E]"
-              }`}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDotClick(index);
+              }}
+              onPointerDown={(e) => e.stopPropagation()}
+              className="p-1.5 cursor-pointer flex items-center justify-center"
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              <span
+                className={`block transition-all duration-300 rounded-full ${
+                  index === currentIndex
+                    ? "h-2.5 sm:h-3 w-1 bg-white"
+                    : "h-1 w-1 bg-[#8E8E8E]"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>
