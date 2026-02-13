@@ -34,7 +34,7 @@ export const AboutUsPage = () => {
               barriers to learning by creating engaging education materials
               available to everyone.
             </p>
-            <CtaButton variant="tertiary" onClick={() => navigate("/about")}>
+            <CtaButton variant="primary" onClick={() => navigate("/about")}>
               Know More →
             </CtaButton>
           </motion.div>

@@ -33,7 +33,7 @@ export const WhyUsPage = () => {
             learning videos through online or offline mediums.
           </p>
           <CtaButton
-            variant="tertiary"
+            variant="primary"
             onClick={() => {
               navigate("/#contactus");
             }}
@@ -51,10 +51,12 @@ export const WhyUsPage = () => {
           viewport={{ once: true, amount: 0.5 }}
           className="hidden lg:flex max-w-xl h-full relative"
         >
-          <img
+          <motion.img
             src="./hourglass.webp"
             alt="Why Us"
             className="absolute right-1/2 bottom-1/6"
+            whileHover={{ rotate: 180 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           />
           <div className="rounded-xl bg-gradient-to-r from-[#2943FC] to-[#09174B] w-[240px] h-[320px] flex items-center justify-center"></div>
         </motion.div>

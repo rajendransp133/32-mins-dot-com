@@ -1,4 +1,5 @@
 import VerticalCarousel from "./VerticalCarousel";
+import SpotlightCard from "./SpotlightCard";
 import { motion } from "framer-motion";
 
 interface ServiceCard {
@@ -79,8 +80,8 @@ const Grid = () => {
             {...cardAnimation}
             className={`col-span-1 ${item.rows || "row-span-1"} ${item.cols}`}
           >
-            <div
-              className={`relative bg-[#0A0A0A] rounded-[15px] p-5 sm:p-6 md:p-7.5 flex flex-col h-full ${
+            <SpotlightCard
+              className={`bg-[#0A0A0A] rounded-[15px] p-5 sm:p-6 md:p-7.5 flex flex-col h-full ${
                 item.carousel
                   ? "justify-center gap-4"
                   : "justify-start items-start"
@@ -91,7 +92,7 @@ const Grid = () => {
               ) : (
                 <ServiceCard {...SERVICES[item.service!]} />
               )}
-            </div>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>

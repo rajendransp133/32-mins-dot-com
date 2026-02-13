@@ -1,8 +1,18 @@
 import { motion } from "framer-motion";
 import Message from "../assets/Message.svg";
 import RightArrow from "../assets/rightarrow.svg";
+import { useState } from "react";
 
 export const ContactUsPage = () => {
+  const [email, setEmail] = useState("");
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const isValid = emailRegex.test(email);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
   return (
     <section className="relative bg-linear-to-b from-[#0A1953] to-[#2842F7] w-[90%] max-w-full h-[360px] rounded-2xl p-7.5 flex flex-col gap-6 items-center justify-center overflow-hidden">
       <h1 className="font-bold text-[clamp(96px,30vw,480px)] tracking-[-0.04em] text-white/16 text-center absolute mix-blend-soft-light z-0  left-1/2 -translate-x-1/2 whitespace-nowrap">
@@ -41,16 +51,25 @@ export const ContactUsPage = () => {
           </p>
         </motion.div>
       </header>
-      <form className="relative w-[320px] h-[48px] z-10">
+      <form className="relative w-[clamp(300px,30vw,400px)] h-[48px] z-10">
         <input
-          type="email"
+          type="text"
+          value={email}
+          onChange={handleChange}
           placeholder="Enter your email id here"
           className="w-full h-full rounded-3xl py-4 pl-14 pr-11 text-white text-[clamp(0.875rem,1.5vw,1.125rem)] tracking-tigher font normal placeholder:text-[#8E8E8E] bg-[#202020]"
         />
         <div className="absolute left-6 top-1/2 transform -translate-y-1/2">
           <Message />
         </div>
-        <div className="absolute right-6 top-1/2 transform -translate-y-1/2">
+        <div
+          className={`absolute right-1 px-3 py-3 top-1/2 -translate-y-1/2 
+  transition-all duration-300 ease-in-out ${
+    isValid
+      ? "opacity-100 cursor-pointer bg-gradient-to-b from-[#0A1953] to-[#2842F7] rounded-r-2xl rounded-l-lg"
+      : "opacity-40 cursor-not-allowed"
+  }`}
+        >
           <RightArrow />
         </div>
       </form>

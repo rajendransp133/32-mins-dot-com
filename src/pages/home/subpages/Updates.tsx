@@ -16,10 +16,10 @@ const UpdatePage = () => {
         <motion.img
           src="/earth2.webp"
           alt="earth"
-          initial={{ y: "40%", rotate: 120 }}
+          initial={{ y: "40%", rotate: 180 }}
           animate={isInView ? { rotate: 270 } : { rotate: 300 }}
           transition={{ duration: 3, ease: "easeOut" }}
-          className="w-full absolute bottom-0"
+          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[max(100%,100vh)]"
         />
 
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />

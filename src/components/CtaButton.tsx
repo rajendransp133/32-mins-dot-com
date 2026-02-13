@@ -2,15 +2,14 @@ import type { VariantProps } from "class-variance-authority";
 import { cva, cx } from "class-variance-authority";
 
 const ctaButtonVariants = cva(
-  "px-7 py-2 rounded-4xl text-[clamp(1rem,4vw,1.5rem)] tracking-tighter flex items-center justify-center gap-3 cursor-pointer",
+  "px-7 py-2 rounded-4xl text-[clamp(0.75rem,3vw,1.25rem)] tracking-tighter flex items-center justify-center gap-3 cursor-pointer",
   {
     variants: {
       variant: {
         primary:
-          "bg-transparent text-white border-white border font-normal rounded-3xl w-fit",
-        secondary: "bg-[#2943FC] text-white font-semibold w-fit rounded-3xl",
-        tertiary:
-          "bg-transparent text-[#8E8E8E] border-[#8E8E8E] border font-normal text-[clamp(0.875rem,3vw,1.125rem)] w-fit",
+          "bg-transparent text-white border-white border font-normal rounded-3xl w-fit btn-style510",
+        secondary:
+          "bg-[#2943FC] text-white font-semibold w-fit rounded-3xl btn-style511",
       },
     },
   }

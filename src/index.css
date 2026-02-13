@@ -18,11 +18,10 @@ body {
 
 /* TYPEWRTE EFFECT */
 .typewriter {
-  overflow: hidden; /* hide extra text */
-  white-space: nowrap; /* keep text in one line */
-  border-right: 2px solid black; /* cursor */
+  overflow: hidden;
+  white-space: nowrap;
   width: 0;
-  animation: typing 5s steps(30, end) forwards, blink 0.7s step-end infinite;
+  animation: typing 5s steps(30, end) forwards;
 }
 
 @keyframes typing {
@@ -33,16 +32,6 @@ body {
     width: 100%;
   }
 }
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* BOUNCE Y EFFECT */
-
-/* Arrow from top */
 
 @keyframes arrowFromTop {
   0% {
@@ -68,54 +57,76 @@ body {
     bounceY 1.5s ease-in-out infinite 0.5s;
 }
 
-/* TEXT TRACKING EFFECT */
-.text-tracking-effect {
-  letter-spacing: 0;
-  animation: trackIn 0.6s ease-out forwards;
-}
-
-@keyframes trackIn {
-  from {
-    letter-spacing: 0;
+.btn-style510 {
+  position: relative;
+  overflow: hidden;
+  &::before,
+  &::after {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100px) skewX(-15deg);
+    content: "";
   }
-  to {
-    letter-spacing: 0.32em;
+  &::before {
+    width: 60px;
+    background: rgba(255, 255, 255, 0.5);
+    filter: blur(30px);
+    opacity: 0.5;
   }
-}
-
-/* EARTH ROTATE */
-
-@keyframes earthRotate {
-  from {
-    transform: translateY(40%) rotate(300deg);
+  &::after {
+    width: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    filter: blur(5px);
   }
-  to {
-    transform: translateY(40%) rotate(270deg);
-  }
-}
-
-.earthRotate-initial {
-  transform: translateY(50%) rotate(120deg);
-}
-
-.earthRotate-effect {
-  animation: earthRotate 3s ease-out forwards;
-}
-
-/* GRID CARD FADE-IN SLIDE-UP */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  &:hover {
+    background: linear-gradient(to bottom, #0a1953, #2842f7);
+    border-color: #2842f7;
+    &::before {
+      opacity: 1;
+    }
+    &::before,
+    &::after {
+      transform: translateX(300px) skewX(-15deg);
+      transition: all 0.9s ease;
+    }
   }
 }
 
-.card-fade-in,
-.section-fade-in {
-  opacity: 0;
-  animation: fadeSlideUp 0.5s ease-out forwards;
+.btn-style511 {
+  position: relative;
+  overflow: hidden;
+  &::before,
+  &::after {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-100px) skewX(-15deg);
+    content: "";
+  }
+  &::before {
+    width: 60px;
+    background: rgba(255, 255, 255, 0.5);
+    filter: blur(30px);
+    opacity: 0.5;
+  }
+  &::after {
+    width: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    filter: blur(5px);
+  }
+  &:hover {
+    &::before {
+      opacity: 1;
+    }
+    &::before,
+    &::after {
+      transform: translateX(300px) skewX(-15deg);
+      transition: all 0.9s ease;
+    }
+  }
 }

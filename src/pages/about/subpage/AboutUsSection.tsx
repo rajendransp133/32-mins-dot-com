@@ -8,32 +8,40 @@ const AboutUsSection = () => {
   const navigate = useNavigate();
   return (
     <article className="text-white flex items-center justify-center gap-4 flex-col px-4 sm:px-8 md:px-12 lg:px-20 xl:px-27 max-w-3xl w-full">
-      <h1
-        className="tracking-tighter leading-none text-center relative"
-        style={{ fontSize: "clamp(1.5rem, 7vw, 6rem)" }}
+      <motion.div
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="w-full flex justify-center"
       >
-        {/* Base white text - always visible underneath */}
-        <span className="text-white">Empower Learning</span>
-        {/* Gradient overlay - fades out on first load to reveal white text */}
-        <motion.span
-          className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#FFFFFF] to-[#000000] bg-clip-text text-transparent"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 0 }}
-          transition={{ duration: 2, delay: 0, ease: "easeIn" }}
-          aria-hidden="true"
+        <h1
+          className="tracking-tighter leading-none text-center relative font-extrabold"
+          style={{ fontSize: "clamp(1.5rem, 7vw, 6rem)" }}
         >
-          Empower Learning
-        </motion.span>
-      </h1>
+          {/* Base white text - always visible underneath */}
+          <span className="text-white">Empower Learning</span>
+          {/* Gradient overlay - fades out on first load to reveal white text */}
+          <motion.span
+            className="absolute inset-0 bg-gradient-to-r from-[#000000] via-[#FFFFFF] to-[#000000] bg-clip-text text-transparent"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 0 }}
+            transition={{ duration: 2, delay: 0, ease: "easeIn" }}
+            aria-hidden="true"
+          >
+            Empower Learning
+          </motion.span>
+        </h1>
+      </motion.div>
       <section className="flex items-center justify-center gap-4 flex-col">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{
             opacity: 1,
             y: 0,
-            transition: { delay: 0.2, duration: 0.5 },
+            transition: { delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] },
           }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.25 }}
           className="text-[clamp(0.875rem,2vw,1.125rem)] font-normal tracking-tight text-[#8E8E8E] max-w-lg text-center px-2"
         >
           Education serves as the foundation for human intellectual growth,
@@ -42,16 +50,26 @@ const AboutUsSection = () => {
           seamless integration of digital tools into education becomes critical
           to prepare learners for the future.
         </motion.p>
-        <TriangleWithLine className="rotate-180" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.25, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+          }}
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          <TriangleWithLine className="rotate-180" />
+        </motion.div>
       </section>
       <motion.figure
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 28 }}
         whileInView={{
           opacity: 1,
           y: 0,
-          transition: { delay: 0.2, duration: 0.5 },
+          transition: { delay: 0.1, duration: 0.65, ease: [0.22, 1, 0.36, 1] },
         }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.25 }}
         className="w-full flex items-center justify-center"
       >
         <img
@@ -61,15 +79,25 @@ const AboutUsSection = () => {
         />
       </motion.figure>
       <section className="flex items-center justify-center gap-4 flex-col">
-        <TriangleWithLine />
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{
             opacity: 1,
             y: 0,
-            transition: { delay: 0.2, duration: 0.5 },
+            transition: { delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
           }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          <TriangleWithLine />
+        </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.25, duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+          }}
+          viewport={{ once: true, amount: 0.25 }}
           className="text-[clamp(0.875rem,2vw,1.125rem)] font-normal tracking-tight text-[#8E8E8E] max-w-lg text-center px-2"
         >
           Sustainable development in digital education requires AI to
@@ -81,29 +109,38 @@ const AboutUsSection = () => {
         </motion.p>
       </section>
       <section className="flex items-center justify-center gap-6 sm:gap-9 flex-col">
-        <header className="flex items-center justify-center gap-3 flex-col px-4 sm:px-8 md:px-15 pt-4 sm:pt-6">
+        <motion.header
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+          }}
+          viewport={{ once: true, amount: 0.25 }}
+          className="flex items-center justify-center gap-3 flex-col px-4 sm:px-8 md:px-15 pt-4 sm:pt-6"
+        >
           <SubpageHeader title="Our Mission" />
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{
               opacity: 1,
               y: 0,
-              transition: { delay: 0.2, duration: 0.5 },
+              transition: { delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
             }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.25 }}
             className="text-white text-[clamp(1.25rem,4vw,1.875rem)] font-bold tracking-tighter text-center"
           >
             Building the future of India with every line of code
           </motion.h2>
-        </header>
+        </motion.header>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{
             opacity: 1,
             y: 0,
-            transition: { delay: 0.2, duration: 0.5 },
+            transition: { delay: 0.3, duration: 0.65, ease: [0.22, 1, 0.36, 1] },
           }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.25 }}
           className="text-[clamp(0.875rem,2vw,1.125rem)] font-normal tracking-tight text-[#8E8E8E] max-w-lg text-center px-2"
         >
           We aim to support education & skill development by creating engaging
@@ -111,14 +148,24 @@ const AboutUsSection = () => {
           livelihood to improve learning outcomes and empower learners with
           valuable skills.
         </motion.p>
-        <CtaButton
-          variant="tertiary"
-          onClick={() => {
-            navigate("/#contactus");
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { delay: 0.45, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
           }}
+          viewport={{ once: true, amount: 0.25 }}
         >
-          Get in touch →
-        </CtaButton>
+          <CtaButton
+            variant="primary"
+            onClick={() => {
+              navigate("/#contactus");
+            }}
+          >
+            Get in touch →
+          </CtaButton>
+        </motion.div>
       </section>
     </article>
   );

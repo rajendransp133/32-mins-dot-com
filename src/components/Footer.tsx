@@ -7,6 +7,7 @@ import Linkedin from "../assets/linkedin.webp";
 import Twitter from "../assets/twitter.webp";
 import Facebook from "../assets/facebook.webp";
 import Insta from "../assets/insta.webp";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const socialLinks = [
@@ -92,12 +93,24 @@ const Footer = () => {
             className="flex flex-row items-center justify-center md:justify-start w-full"
             style={{ gap: "clamp(0.75rem, 2vw, 1rem)" }}
           >
-            <div
-              className="font-normal tracking-tigher text-[#8E8E8E] whitespace-nowrap"
+            <motion.div
+              initial="initial"
+              whileHover="hover"
+              className="font-normal tracking-tight text-[#8E8E8E] whitespace-nowrap hover:text-white"
               style={{ fontSize: "clamp(1rem, 2.5vw, 1.5rem)" }}
             >
-              Socials »
-            </div>
+              Socials{" "}
+              <motion.span
+                className="inline-block"
+                variants={{
+                  initial: { x: 0 },
+                  hover: { x: 5 },
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                »
+              </motion.span>
+            </motion.div>
             <nav
               className="flex flex-wrap items-center justify-center"
               style={{ gap: "clamp(0.5rem, 1.5vw, 0.75rem)" }}
@@ -107,7 +120,9 @@ const Footer = () => {
                   key={name}
                   to={href}
                   target="_blank"
-                  className="border border-[#8E8E8E] rounded-sm cursor-pointer transition-all hover:border-white hover:scale-110"
+                  className={`border border-[#8E8E8E] rounded-sm cursor-pointer transition-all hover:border-white hover:scale-110 flex items-center justify-center ${
+                    name === "Twitter" ? "p-1" : ""
+                  }`}
                   style={{
                     width: "clamp(1.75rem, 4vw, 2.25rem)",
                     height: "clamp(1.75rem, 4vw, 2.25rem)",
@@ -206,7 +221,7 @@ const Footer = () => {
         </div>
         <div className="hidden sm:block">|</div>
         <div className="whitespace-nowrap">
-          ©2025 32Mins Consultancy Services Pvt. Ltd.
+          ©2026 32Mins Digital Consultancy Services Pvt. Ltd.
         </div>
       </nav>
     </footer>
